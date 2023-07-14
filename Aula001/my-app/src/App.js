@@ -1,18 +1,33 @@
 import React,{useState} from 'react'
-import Led from './Components/Led'
 
 export default function App() {
 
-  const [led,setLed] = useState(false)
+  const [log,setLog]=useState(false)
 
-  const cancelar = (obj) =>{
-    return obj.preventDefault()
+  const msglog = () =>{
+    return 'Usuário Logado'
+  }
+
+  const msglogoff = () =>{
+    return 'Favor Logar'
+  }
+
+  const cumprimento = () =>{
+    const hora = new Date().getHours()
+    if(hora >= 0 && hora < 13){
+      return <p>Bom Dia</p>
+    }else if(hora >=13 && hora < 18){
+      return <p>Boa Tarde</p>
+    }else{
+      return<p>Boa Noite</p>
+    }
   }
 
   return (
     <>
-      <Led led={led} setLed={setLed}/>
-      <a href="https://youtube.com/cfbcursos" target='_blank' onClick={(e)=>cancelar(e)}>qlqcoisa</a>
+      {cumprimento()}
+      <p>{log?msglog():msglogoff()}</p>
+      <button onClick={()=>setLog(!log)}>{log?'logoff':'login'}</button>
     </>
   );
 }
