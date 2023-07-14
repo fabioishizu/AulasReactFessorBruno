@@ -1,19 +1,18 @@
 import React,{useState} from 'react'
-import Numero from './Components/Numero'
-import './App.css'
+import Led from './Components/Led'
 
-function App() {
-  
-  let n1=10
+export default function App() {
 
-  const [num,setNum] = useState(n1)
-  
+  const [led,setLed] = useState(false)
+
+  const cancelar = (obj) =>{
+    return obj.preventDefault()
+  }
+
   return (
     <>
-      Valor do state em app: {num}
-      <Numero num={num} setNum={setNum}/>
+      <Led led={led} setLed={setLed}/>
+      <a href="https://youtube.com/cfbcursos" target='_blank' onClick={(e)=>cancelar(e)}>qlqcoisa</a>
     </>
   );
 }
-
-export default App;
