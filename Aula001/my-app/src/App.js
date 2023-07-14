@@ -1,16 +1,17 @@
-import React from 'react';
-import Header from './Components/Header';
-import Body from './Components/Body';
-
-const canal = 'CanalCurso123';
-const yt = 'youtube.com/qlqcoisa';
-const crs = 'React';
+import React,{useState} from 'react'
+import Numero from './Components/Numero'
+import './App.css'
 
 function App() {
+  
+  let n1=10
+
+  const [num,setNum] = useState(n1)
+  
   return (
     <>
-      <Header/>
-      <Body/>
+      Valor do state em app: {num}
+      <Numero num={num} setNum={setNum}/>
     </>
   );
 }
