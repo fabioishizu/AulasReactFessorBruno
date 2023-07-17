@@ -2,32 +2,13 @@ import React,{useState} from 'react'
 
 export default function App() {
 
-  const [log,setLog]=useState(false)
+  const carros = ['HRV', 'Golf', 'Focus', 'Cruze', 'Argo', 'Gol']
 
-  const msglog = () =>{
-    return 'Usuário Logado'
-  }
+  const listaCarros = carros.map( (c,i) => <li key={i}>{i} - {c}</li> )
 
-  const msglogoff = () =>{
-    return 'Favor Logar'
-  }
-
-  const cumprimento = () =>{
-    const hora = new Date().getHours()
-    if(hora >= 0 && hora < 13){
-      return <p>Bom Dia</p>
-    }else if(hora >=13 && hora < 18){
-      return <p>Boa Tarde</p>
-    }else{
-      return<p>Boa Noite</p>
-    }
-  }
-
-  return (
+  return ( 
     <>
-      {cumprimento()}
-      <p>{log?msglog():msglogoff()}</p>
-      <button onClick={()=>setLog(!log)}>{log?'logoff':'login'}</button>
+      {listaCarros}
     </>
   );
 }
