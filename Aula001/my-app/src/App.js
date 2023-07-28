@@ -1,15 +1,20 @@
-import React,{useState} from 'react'
-import Caixa from './Components/Caixa'
-import Canal from './Components/Canal'
+import React,{useEffect, useState} from 'react'
 
 export default function App() {
 
+  const [contagem, setContagem] = useState(0)
+
+  useEffect(
+    ()=>{
+      console.log("pagina carregada")
+      document.title='Contagem:'+contagem
+    }
+  )
+
   return ( 
     <>
-      <Caixa site="teste.com">
-        <Canal/>
-        <p>curso de react</p>
-      </Caixa>
+      <p>Contagem: {contagem}</p>
+      <button onClick={()=>setContagem(contagem+1)}>Contar</button>
     </>
   );
 }
