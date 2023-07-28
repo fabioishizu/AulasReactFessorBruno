@@ -2,17 +2,31 @@ import React,{useState} from 'react'
 
 export default function App() {
 
-  const carros = ['HRV', 'Golf', 'Focus', 'Cruze', 'Argo', 'Gol']
+  const [form, setForm] = useState({"nome":"fabio", "curso":"react", "ano":"2023"})
 
-  const [nome, setNome] = useState('Digite seu nome aqui')
-
-  const listaCarros = carros.map( (c,i) => <li key={i}>{i} - {c}</li> )
+  const handleFormChange = (e)=>{
+    if(e.target.getAttribute('name') == 'fnome'){
+      setForm({"nome":e.target.value,"curso":form.curso, "ano":form.ano})
+    }else if(e.target.getAttribute('name') == 'fcurso'){
+      setForm({"nome":form.nome,"curso":e.target.value, "ano":form.ano})
+    }else if(e.target.getAttribute('name') == 'fano'){
+      setForm({"nome":form.nome,"curso":form.curso, "ano":e.target.value})
+    }
+  }
 
   return ( 
     <>
       <label>Digite um nome: </label>
-      <input type="text" name="fnome" value={nome} onChange={(e) => setNome(e.target.value)}/>
-      <p>{nome}</p>
+      <input type="text" name="fnome" value={form.nome} onChange={(e)=>handleFormChange(e)}/>
+      <label>Digite um curso: </label>
+      <input type="text" name="fcurso" value={form.curso} onChange={(e)=>handleFormChange(e)}/>
+      <label>Digite o ano: </label>
+      <input type="text" name="fano" value={form.ano} onChange={(e)=>handleFormChange(e)}/>
+
+    <p>Nome digitado: {form.nome}</p>
+    <p>Curso digitado: {form.curso}</p>
+    <p>Ano digitado: {form.ano}</p>
+
     </>
   );
 }
