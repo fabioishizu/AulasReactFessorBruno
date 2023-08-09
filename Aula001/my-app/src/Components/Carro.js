@@ -12,6 +12,18 @@ export default class Carro extends React.Component{
         this.ld = this.ligarDesligar.bind(this)
     }
 
+    componentDidMount(){
+        console.log('CARRO CRIADO! :)')
+    }
+
+    componentDidUpdate(){
+        console.log('CARRO ATUALIZADO! :)')
+    }
+
+    componentWillUnmount(){
+        console.log('CARRO REMOVIDO! :)')
+    }
+
     ligarDesligar() {
         this.setState({ligado: !this.state.ligado})
         this.setState(
