@@ -11,6 +11,7 @@ export default class Classe extends React.Component{
             <>
                 <h1>Primeiro Component de Classe</h1>
                 <p>Canal: {this.props.canal}</p>
+                <p>Curso: {this.props.curso}</p>
             </>
         );
     }
