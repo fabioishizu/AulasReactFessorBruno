@@ -5,7 +5,7 @@ export default function App() {
 
   return ( 
     <>
-      <Carro modelo="Gol"/>
+      <Carro fator={10}/>
     </>
   );
 }
